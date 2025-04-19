@@ -12,7 +12,7 @@ class WeatherAPI {
         params: Record <string,string | number>  //this means it will be an object with key of string and value of string or number
     ){
         const searchParams = new URLSearchParams({
-            appid:API_CONFIG.APY_KEY, //Adds the API key to the query
+            appid:API_CONFIG.API_KEY, //Adds the API key to the query
             ...params, // spreads the params object into it, adding all the other parameters
         })
         //template literal which builds and returns a full URL string with query parameters
