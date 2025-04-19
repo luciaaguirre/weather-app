@@ -61,7 +61,14 @@ export function useGeolocation() {
                     coordinates: null,
                     error: errorMessage, 
                     isLoading: false,
-                })
+                });
+
+
+            },{ //this is the optional third parameter for navigator.geolocation.getCurrentPosition()- lets you tune how the browser fetches the location
+                
+                enableHighAccuracy:true,
+                timeout:5000,
+                maximumAge: 0,
 
 
             });
