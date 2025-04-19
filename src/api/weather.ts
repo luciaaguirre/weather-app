@@ -1,7 +1,7 @@
 // we create a class for managing all our APIs endpoints
 
 import { API_CONFIG } from "./config"
-import { Coordinates, WeatherData } from "./types";
+import { Coordinates, WeatherData, GeocodingResponse } from "./types";
 
 
 class WeatherAPI {
@@ -58,5 +58,13 @@ class WeatherAPI {
 
     }
 
-    async reverGeocode(){}
+    async reverseGeocode({lat, lon}:Coordinates ):Promise <GeocodingResponse>{
+        const url = this.createUrl(`${API_CONFIG.BASE_URL}/forecast`,{
+            lat:lat.toString(), 
+            lon:lon.toString(),
+            units: API_CONFIG.DEFAULT_PARAMS.units,
+
+         });
+
+         return this.fetchData<GeocodingResponse>(url)
 }
