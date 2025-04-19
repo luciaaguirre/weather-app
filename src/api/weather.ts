@@ -70,4 +70,6 @@ class WeatherAPI {
 }
 }
 
+// Creates a single instance of the WeatherAPI class that can be imported and used throughout the app, to interact with the weather API in a clean, reusable and organized way// Keeps the code DRY, makes all methods (getCurrentWeather, getForecast, etc)easily accesible from anywhere in the app
+
 export const weatherAPI = new WeatherAPI()
