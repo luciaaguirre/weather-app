@@ -1,6 +1,8 @@
 // we create a class for managing all our APIs endpoints
 
 import { API_CONFIG } from "./config"
+import { Coordinates } from "./types";
+
 
 class WeatherAPI {
 
@@ -30,9 +32,17 @@ class WeatherAPI {
 
     // public asyncrhonous functions that can be accesible from the outside
 
-    async getCurrentWeather({lat, lon}:Coordinates )
+    async getCurrentWeather({lat, lon}:Coordinates ):Promise <>{
+        const url = this.createUrl(`${API_CONFIG.BASE_URL}/weather`,{
+            lat:lat.toString(), 
+            lon:lon.toString(),
+            units: API_CONFIG.DEFAULT_PARAMS.units,
+
+         })
 
     }
+
+
 
     async getForecast (){}
 
