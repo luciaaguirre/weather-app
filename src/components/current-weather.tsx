@@ -1,11 +1,13 @@
 import { GeocodingResponse, WeatherData } from "@/api/types";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 interface CurrentWeatherProps {
     data:WeatherData,
     locationName?:GeocodingResponse
 }
-
+ //format the temperature info so its just two digits and degree symbol
+const formatTemp = (temp: number) => `${Math.round(temp)}º`
 
 const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
     const {
@@ -20,8 +22,8 @@ const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
             <div className="grid gap-6 md:grid-cols-2"> 
                 <div className="space-y-4">
                     <div className="space-2">
-                        <div className="flex items-center">
-                            <h2>{locationName?.name}</h2>
+                        <div className="flex items-end gap-1">
+                            <h2 className="text-2xl font-bold tracking-tighter ">{locationName?.name}</h2>
                             {locationName?.state && (
                                 <span className="text-muted-foreground">
                                     , {locationName.state}
@@ -32,7 +34,25 @@ const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
                         <p className="text-sm text-muted-foreground">
                             {locationName?.country}
                         </p>
+                    </div>
 
+                    <div className="flex items-center gap-2">
+                        <p className="text-7xl font-bold tracking-tighter">{formatTemp(temp)}</p>
+
+                        <div className="space-y-1">
+                            <p className="text-sm font-medium text-muted-foreground"> Feels like {formatTemp(feels_like)}</p>
+                        </div>
+
+                        <div className="flex gap-2 text-sm font-medium">
+                            <span className="flex items-center gap-1 text-blue-500">
+                                <ArrowDown className="h-3 w-3" />
+                                {formatTemp(temp_min)}
+                            </span>
+                            <span className="flex items-center gap-1 text-red-500">
+                                <ArrowUp className="h-3 w-3" />
+                                {formatTemp(temp_max)}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
