@@ -4,6 +4,7 @@ import {  AlertTriangle, MapPin, RefreshCw } from "lucide-react";
 import WeatherSkeleton from "@/components/loading-skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useForecastQuery, useReverseGeocodeQuery, useWeatherQuery } from "@/hooks/use-weather";
+import CurrentWeather from "@/components/current-weather";
 
 const WeatherDashboard = () => {
     // Geolocation hook using browser's geolocation API
@@ -109,7 +110,26 @@ const WeatherDashboard = () => {
             </Button>
         </div>
 
-        {/* Current and Hourly Weather */}
+        <div className="grid gap-6">
+            <div>
+                <CurrentWeather
+                    data={weatherQuery.data}
+                    locationName={locationName}
+                />
+            {/* current weather */}
+            {/* hourly temperature */}
+
+            </div>
+
+            <div>
+            {/* weather detail's */}
+            {/* forecast */}
+
+            </div>
+
+
+        </div>
+
     </div>
 }
 export default WeatherDashboard; 
