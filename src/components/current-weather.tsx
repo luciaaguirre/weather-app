@@ -21,7 +21,7 @@ const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
         <CardContent className="p-6">
             <div className="grid gap-6 md:grid-cols-2"> 
                 <div className="space-y-4">
-                    <div className="space-2">
+                    <div className="space-y-2">
                         <div className="flex items-end gap-1">
                             <h2 className="text-2xl font-bold tracking-tighter ">{locationName?.name}</h2>
                             {locationName?.state && (
@@ -41,8 +41,6 @@ const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
 
                         <div className="space-y-1">
                             <p className="text-sm font-medium text-muted-foreground"> Feels like {formatTemp(feels_like)}</p>
-                        </div>
-
                         <div className="flex gap-2 text-sm font-medium">
                             <span className="flex items-center gap-1 text-blue-500">
                                 <ArrowDown className="h-3 w-3" />
@@ -53,6 +51,8 @@ const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
                                 {formatTemp(temp_max)}
                             </span>
                         </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
