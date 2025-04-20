@@ -1,6 +1,6 @@
 import { GeocodingResponse, WeatherData } from "@/api/types";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
-import { ArrowDown, ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp, Droplets } from "lucide-react";
 
 interface CurrentWeatherProps {
     data:WeatherData,
@@ -52,7 +52,16 @@ const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
                             </span>
                         </div>
                         </div>
+                    </div>
+                    <div>
+                        <div>
+                            <Droplets className="h-4 w-4 text-blue-500"/>
+                            <div className="space-y-0.5">
+                                <p className="text-sm font-medium"> Humidity</p>
+                                <p className="text-s, text-muted-foreground">{humidity}%</p>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
