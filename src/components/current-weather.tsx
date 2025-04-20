@@ -11,7 +11,7 @@ const formatTemp = (temp: number) => `${Math.round(temp)}º`
 
 const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
     const {
-        weather: [CurrentWeather],
+        weather: [currentWeather],
         main: {temp, feels_like, temp_min, temp_max, humidity},
         wind: {speed},
     } = data;
@@ -59,10 +59,7 @@ const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
                             <div className="space-y-0.5">
                                 <p className="text-sm font-medium"> Humidity</p>
                                 <p className="text-s, text-muted-foreground">{humidity}%</p>
-
                             </div>
-
-                    
                         </div>
 
                         <div className="flex items-center gap-2">
@@ -70,14 +67,25 @@ const CurrentWeather = ({data, locationName}: CurrentWeatherProps) => {
                             <div className="space-y-0.5">
                                 <p className="text-sm font-medium"> Wind Speed</p>
                                 <p className="text-s, text-muted-foreground">{speed}m/s</p>
-
                             </div>
+                        </div>
+                    </div>
+                </div>
 
-                            
+
+                <div className="relative flex aspect-square w-full max-w-[200px] items-center justify-center">
+                    <div>
+                        <img src={`https://openweathermap.org/img/wn/${currentWeather.icon}@4x.png`} alt="OpenWeather image od the current weather" />
+                        <div className=" bottom-0 text-center">
+                            <p className="text-sm font-medium capitalize">
+                                {currentWeather.description}
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+
+
         </CardContent>
     </Card>
     )
