@@ -1,6 +1,6 @@
 import { ForecastData } from "@/api/types";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import {Line, LineChart, ResponsiveContainer} from "recharts";
+import {Line, LineChart, ResponsiveContainer, XAxis, YAxis} from "recharts";
 import {format} from "date-fns"
 
 
@@ -25,7 +25,33 @@ const HourlyTemperature = ({data}: HourlyTemperatureProps) => {
             <div className="h-[200px] w-full">
                 <ResponsiveContainer width={"100%"} height={"100%"}>
                 <LineChart  data={chartData}>
-                <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                <XAxis
+                    dataKey="time"
+                    stroke="#888888"
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={false}
+                /> 
+            
+                <YAxis
+                    stroke="#888888"
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={false}
+                    tickFormatter={ (value) => `${value}º`}
+                />
+                {/* tooltip */}
+
+                <Line
+                type="monotone"
+                dataKey="temp"
+                stroke="#2563eb"
+                strokeWidth={2}
+                dot={false}
+                />
+
+
+
                 </LineChart>
 
                 </ResponsiveContainer>
