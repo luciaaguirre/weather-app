@@ -19,6 +19,7 @@ export interface WeatherData {
     temp_min: number;
     temp_max: number;
     humidity: number;
+    pressure: number;
   };
   wind: {
     speed: number;
@@ -36,9 +37,9 @@ export interface WeatherData {
 export interface ForecastData {
   list: Array<{
     dt: number;
-    main: WeatherData['main'];
-    weather: WeatherData['weather'];
-    wind: WeatherData['wind'];
+    main: WeatherData["main"];
+    weather: WeatherData["weather"];
+    wind: WeatherData["wind"];
     dt_txt: string;
   }>;
   city: {

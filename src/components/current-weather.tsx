@@ -1,4 +1,4 @@
-import { GeocodingResponse, WeatherData } from '@/api/types';
+import { GeocodingResponse, WeatherData } from "@/api/types";
 import {
   Card,
   CardHeader,
@@ -6,8 +6,8 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from './ui/card';
-import { ArrowDown, ArrowUp, Droplets, Wind } from 'lucide-react';
+} from "./ui/card";
+import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react";
 
 interface CurrentWeatherProps {
   data: WeatherData;
@@ -51,7 +51,7 @@ const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
 
               <div className="space-y-1">
                 <p className="text-sm font-medium text-muted-foreground">
-                  {' '}
+                  {" "}
                   Feels like {formatTemp(feels_like)}
                 </p>
                 <div className="flex gap-2 text-sm font-medium">

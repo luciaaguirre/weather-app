@@ -1,5 +1,5 @@
-import { ForecastData } from '@/api/types';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { ForecastData } from "@/api/types";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import {
   Line,
   LineChart,
@@ -7,9 +7,9 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-} from 'recharts';
-import { format } from 'date-fns';
-import { Divide } from 'lucide-react';
+} from "recharts";
+import { format } from "date-fns";
+import { Divide } from "lucide-react";
 
 interface HourlyTemperatureProps {
   data: ForecastData;
@@ -17,7 +17,7 @@ interface HourlyTemperatureProps {
 
 const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
   const chartData = data.list.slice(0, 8).map((item) => ({
-    time: format(new Date(item.dt * 1000), 'ha'),
+    time: format(new Date(item.dt * 1000), "ha"),
     temp: Math.round(item.main.temp),
     feels_like: Math.round(item.main.feels_like),
   }));
@@ -29,7 +29,7 @@ const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
       </CardHeader>
       <CardContent>
         <div className="h-[200px] w-full">
-          <ResponsiveContainer width={'100%'} height={'100%'}>
+          <ResponsiveContainer width={"100%"} height={"100%"}>
             <LineChart data={chartData}>
               <XAxis
                 dataKey="time"

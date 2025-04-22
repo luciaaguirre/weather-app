@@ -1,7 +1,7 @@
 // we create a class for managing all our APIs endpoints
 
-import { API_CONFIG } from './config';
-import { Coordinates, WeatherData, GeocodingResponse } from './types';
+import { API_CONFIG } from "./config";
+import { Coordinates, WeatherData, GeocodingResponse } from "./types";
 
 class WeatherAPI {
   //private functinos, cannot be accesible from the outside

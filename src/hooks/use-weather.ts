@@ -1,12 +1,12 @@
-import { Coordinates } from '@/api/types';
-import { weatherAPI } from '@/api/weather';
-import { useQuery } from '@tanstack/react-query';
+import { Coordinates } from "@/api/types";
+import { weatherAPI } from "@/api/weather";
+import { useQuery } from "@tanstack/react-query";
 
 // centralized object for generating query keys - each returns a unique cache key based on the type of data and the coordinates
 export const WEATHER_KEYS = {
-  weather: (coords: Coordinates) => ['weather', coords] as const,
-  forecast: (coords: Coordinates) => ['forecast', coords] as const,
-  location: (coords: Coordinates) => ['location', coords] as const,
+  weather: (coords: Coordinates) => ["weather", coords] as const,
+  forecast: (coords: Coordinates) => ["forecast", coords] as const,
+  location: (coords: Coordinates) => ["location", coords] as const,
 } as const; // "as const" to be ensured the array is treated as a tuple (strict type)
 
 //CUSTOM HOOKS
