@@ -17,8 +17,8 @@ const Header = () => {
             className="h-14"
           />
         </Link>
-        <div>
-          {/*search*/}
+        <div className="flex gap-4">
+        
           <CitySearch />
           
 
