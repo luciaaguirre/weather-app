@@ -7,7 +7,9 @@ export const WEATHER_KEYS = {
   weather: (coords: Coordinates) => ["weather", coords] as const,
   forecast: (coords: Coordinates) => ["forecast", coords] as const,
   location: (coords: Coordinates) => ["location", coords] as const,
-} as const; // "as const" to be ensured the array is treated as a tuple (strict type)
+  search: (query:string) => ["location-search", query] as const,
+} as const;
+ // "as const" to be ensured the array is treated as a tuple (strict type)
 
 //CUSTOM HOOKS
 // to fetch current weather data
@@ -36,4 +38,13 @@ export function useReverseGeocodeQuery(coordinates: Coordinates | null) {
       coordinates ? weatherAPI.reverseGeocode(coordinates) : null,
     enabled: !!coordinates,
   });
+}
+
+export function useLocationSearch(query:string) {
+  return useQuery({ //hook from Tanstack, used for managing server-side data fetching in React
+    queryKey: WEATHER_KEYS.search(query),
+    queryFn: () => weatherAPI.searchLocations(query), // Function that fetches de data for the query
+    enabled: query.length >= 3, // the query will only run when the length of the query us 3 o more characters
+  });
+
 }

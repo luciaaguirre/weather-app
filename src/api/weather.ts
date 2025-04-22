@@ -58,10 +58,22 @@ class WeatherAPI {
       lon: lon.toString(),
       limit: 1,
     });
+      // the function is expected to return a list of location data in the form of an array of GeocodingResponse objects
+    return this.fetchData<GeocodingResponse[]>(url);
+  }
+
+  async searchLocations(query: string): Promise<GeocodingResponse[]> {
+    const url = this.createUrl(`${API_CONFIG.GEO}/direct`, {
+      q: query,
+      limit: 5, // limits the results to 5 locations
+    });
 
     return this.fetchData<GeocodingResponse[]>(url);
   }
 }
+
+
+
 
 // Creates a single instance of the WeatherAPI class that can be imported and used throughout the app, to interact with the weather API in a clean, reusable and organized way// Keeps the code DRY, makes all methods (getCurrentWeather, getForecast, etc)easily accesible from anywhere in the app
 
