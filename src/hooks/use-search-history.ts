@@ -26,7 +26,7 @@ export function useSearchHistory(){
     //UseMutation: hook from Tanstack that allows to perform mutations (like creating, updating or deleting data. Used for making side-effectful operations like adding data on a server.)
     const addToHistory = useMutation({
         mutationFn:async(
-            search: Omit<SearchHistoryItem, "id" | "SearchedAt"> // The search object should have all properties defined in SearchHistoryItem except fot id and dsearchedAt
+            search: Omit<SearchHistoryItem, "id" | "searchedAt"> // The search object should have all properties defined in SearchHistoryItem except fot id and dsearchedAt
         ) => {
             const newSearch: SearchHistoryItem = {
                 ...search, //spread operator!! copies all the properties of search objec into newSearch.
