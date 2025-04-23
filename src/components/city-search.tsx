@@ -35,7 +35,7 @@ const CitySearch = () => {
 
         setOpen(false) //to close the command window after select
         //function from React-router. Creation of a new route to navigate to.
-        navigate(`/city/${name}??lat=${lat}lon=${lon}`)
+        navigate(`/city/${name}?lat=${lat}lon=${lon}`)
     }
 
     return ( 
