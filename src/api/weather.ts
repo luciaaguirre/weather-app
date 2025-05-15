@@ -1,7 +1,12 @@
 // we create a class for managing all our APIs endpoints
 
 import { API_CONFIG } from "./config";
-import { Coordinates, WeatherData, GeocodingResponse } from "./types";
+import {
+  Coordinates,
+  WeatherData,
+  GeocodingResponse,
+  ForecastData,
+} from "./types";
 
 class WeatherAPI {
   //private functinos, cannot be accesible from the outside
@@ -58,7 +63,7 @@ class WeatherAPI {
       lon: lon.toString(),
       limit: 1,
     });
-      // the function is expected to return a list of location data in the form of an array of GeocodingResponse objects
+    // the function is expected to return a list of location data in the form of an array of GeocodingResponse objects
     return this.fetchData<GeocodingResponse[]>(url);
   }
 
@@ -71,9 +76,6 @@ class WeatherAPI {
     return this.fetchData<GeocodingResponse[]>(url);
   }
 }
-
-
-
 
 // Creates a single instance of the WeatherAPI class that can be imported and used throughout the app, to interact with the weather API in a clean, reusable and organized way// Keeps the code DRY, makes all methods (getCurrentWeather, getForecast, etc)easily accesible from anywhere in the app
 
